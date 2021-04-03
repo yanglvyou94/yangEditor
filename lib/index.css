@@ -1,0 +1,13 @@
+.yangEditContent {
+    width: 540px;
+    height: 200px;
+    border: 1px #000000 solid;
+    padding: 12px;
+    overflow: scroll;
+    margin:0 auto;
+}
+.yangEditHeader{
+    width: 560px;
+    margin:10px auto;
+}
+
