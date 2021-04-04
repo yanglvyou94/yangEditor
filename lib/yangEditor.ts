@@ -1,9 +1,9 @@
-// 指令
+// 指令数组
 const actions = [
 	{
 		command: 'formatblock',
 		values: [
-			{ text: '- 设置标题 -', value: 'selected' },
+			{ text: '- 设置标题大小 -', value: 'selected' },
 			{ text: 'H1标题', value: 'h1' },
 			{ text: 'H2标题', value: 'h2' },
 			{ text: 'H3标题', value: 'h3' },
@@ -61,13 +61,15 @@ export default class YangEditor {
 		// 设置可编辑区域
 		editContent.contentEditable = 'true';
 		editContent.appendChild(p);
+        // 指令区域
 		miniEdit.appendChild(editHeader);
+        // 可编辑区域
 		miniEdit.appendChild(editContent);
 		editWrapper.appendChild(miniEdit);
 	}
 
 	// 创建select节点
-	private createSelectDOM(commandItem): HTMLSelectElement {
+	private createSelectDOM(commandItem: ActionsItem): HTMLSelectElement {
 		let select = document.createElement('select');
 		commandItem.values.forEach((item) => {
 			select.add(new Option(item.text, item.value));
@@ -80,12 +82,12 @@ export default class YangEditor {
 		return select;
 	}
 
-	private execCommand(sCmd: string, sValue: string): void {
+	private execCommand(cmd: string, value: string): void {
 		//execCommand bool = document.execCommand(aCommandName, aShowDefaultUI, aValueArgument)
 		// aCommandName 一个 DOMString ，命令的名称。
 		//aShowDefaultUI 一个 Boolean， 是否展示用户界面，一般为 false
 		//aValueArgument 一些命令（例如insertImage）需要额外的参数（insertImage需要提供插入image的url），默认为null。
-		document.execCommand(sCmd, false, sValue);
+		document.execCommand(cmd, false, value);
 	}
 
 	// 创建DOM节点

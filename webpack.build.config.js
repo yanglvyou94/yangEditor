@@ -2,11 +2,9 @@ const path = require("path")
 
 module.exports = {
     mode: "production",
-
     entry: "./lib/index.js",
-
     output: {
-        filename: "bundle.js",
+        filename: "yangEditor.js",
         path: path.resolve(__dirname, "./dist"),
         libraryTarget: 'umd'
     },
